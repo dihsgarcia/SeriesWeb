@@ -1,0 +1,46 @@
+﻿@using SeriesWeb.Enums
+@model Serie
+
+<form method="post" asp-action="DeletePost">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary text-light">Deletar Serie</h2>
+            <hr />
+        </div>
+         <div class="mb-3">
+            <label asp-for="Id"></label>
+            <input asp-for="Id" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Genero"></label>
+            <select asp-for="Genero" disabled asp-items="Html.GetEnumSelectList<Genero>()">
+                    <option selected="selected" value="">Escolha um Genero</option>
+             </select>  
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Titulo"></label>
+            <input asp-for="Titulo" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Descricao"></label>
+            <input asp-for="Descricao" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ano"></label>
+            <input asp-for="Ano" disabled class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Deletar</button>
+        <a asp-controller="Series" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Voltar
+        </a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+     }
+}
